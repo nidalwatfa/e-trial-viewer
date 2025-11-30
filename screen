@@ -68,3 +68,73 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
+// screens/LiveTrialScreen.js
+import React from 'react';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
+
+// نحصل على أبعاد الشاشة لتحديد حجم "مشغل الفيديو"
+const { width } = Dimensions.get('window');
+const VIDEO_HEIGHT = width * 0.6; // مثلاً، 60% من عرض الشاشة
+
+const LiveTrialScreen = ({ route }) => {
+  // استقبال بيانات المحاكمة من شاشة Home (سنقوم بتمريرها لاحقاً)
+  const { caseNumber, court } = route.params || { caseNumber: 'غير محدد', court: 'غير محدد' };
+
+  return (
+    <View style={styles.container}>
+      {/* 1. مساحة عرض الفيديو (المحاكي) */}
+      <View style={styles.videoPlayer}>
+        <Text style={styles.videoText}>بث المحاكمة المباشر هنا</Text>
+      </View>
+      
+      {/* 2. تفاصيل المحاكمة */}
+      <View style={styles.detailsContainer}>
+        <Text style={styles.detailHeader}>التفاصيل الحالية:</Text>
+        <Text style={styles.detailText}>القضية: {caseNumber}</Text>
+        <Text style={styles.detailText}>المحكمة: {court}</Text>
+        <Text style={styles.detailStatus}>الحالة: جلسة علنية ومباشرة</Text>
+      </View>
+
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  videoPlayer: {
+    width: width,
+    height: VIDEO_HEIGHT,
+    backgroundColor: '#000', // لون أسود لتمثيل شاشة الفيديو
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  videoText: {
+    color: '#fff',
+    fontSize: 18,
+  },
+  detailsContainer: {
+    padding: 15,
+  },
+  detailHeader: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    color: '#16213e',
+  },
+  detailText: {
+    fontSize: 16,
+    marginBottom: 4,
+    color: '#333',
+  },
+  detailStatus: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginTop: 10,
+    color: 'green',
+  },
+});
+
+export default LiveTrialScreen;
