@@ -1,14 +1,43 @@
-
 // screens/HomeScreen.js
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
+// استيراد مكون البطاقة الذي أنشأناه
+import TrialCard from '../components/TrialCard';
 
-const HomeScreen = () => {
+// بيانات وهمية مؤقتة للمحاكمات
+const MOCK_TRIALS = [
+  { id: '1', caseNumber: 'جنايات #452', court: 'محكمة الجنايات الكبرى - القاعة 1', time: '10:00 ص' },
+  { id: '2', caseNumber: 'تجاري #88', court: 'محكمة البداية - الدائرة التجارية', time: '11:30 ص' },
+  { id: '3', caseNumber: 'مدني #201', court: 'محكمة الصلح - القاعة 3', time: '01:00 م' },
+  { id: '4', caseNumber: 'إداري #55', court: 'المحكمة الإدارية العليا', time: '02:30 م' },
+];
+
+const HomeScreen = ({ navigation }) => {
+  
+  const renderItem = ({ item }) => (
+    <TrialCard 
+      caseNumber={item.caseNumber} 
+      court={item.court}
+      time={item.time}
+      // دالة onPress: عند الضغط على البطاقة، ننتقل إلى شاشة تفاصيل المحاكمة (سننشئها لاحقًا)
+      onPress={() => console.log('View details for:', item.caseNumber)} 
+    />
+  );
+  
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>شاشة المحاكمات الإلكترونية</Text>
-      <Text style={styles.subtitle}>هنا سيتم عرض قائمة المحاكمات المباشرة</Text>
-      {/* هنا سيتم إضافة قائمة البطاقات لاحقًا */}
+      <Text style={styles.headerTitle}>المحاكمات المباشرة اليوم</Text>
+      
+      <FlatList
+        data={MOCK_TRIALS}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        // إضافة مسافة علوية للقائمة
+        contentContainerStyle={styles.listContainer}
+        ListEmptyComponent={() => (
+          <Text style={styles.emptyText}>لا توجد محاكمات مباشرة حالياً.</Text>
+        )}
+      />
     </View>
   );
 };
@@ -16,20 +45,26 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f5f5f5', // لون خلفية فاتح
+    backgroundColor: '#f5f5f5', 
   },
-  title: {
-    fontSize: 24,
+  headerTitle: {
+    fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 10,
-    color: '#16213e', // لون غامق
+    marginHorizontal: 15,
+    marginTop: 10,
+    marginBottom: 5,
+    color: '#16213e',
+    textAlign: 'right', // لضبط العنوان ليتناسب مع اللغة العربية
   },
-  subtitle: {
+  listContainer: {
+    paddingVertical: 10,
+  },
+  emptyText: {
+    textAlign: 'center',
+    marginTop: 50,
     fontSize: 16,
-    color: '#666',
-  },
+    color: '#999',
+  }
 });
 
 export default HomeScreen;
