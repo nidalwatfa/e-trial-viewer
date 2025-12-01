@@ -4,8 +4,8 @@
   "description": "تطبيق لمشاهدة المحاكمات الإلكترونية",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node App.js",
+    "dev": "nodemon App.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["trial", "viewer", "electronic", "محاكمات"],
@@ -16,3 +16,5 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
+  }
+}
