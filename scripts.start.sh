@@ -1,4 +1,4 @@
-**ملف:** `scripts/start.sh`
+
 
 ```bash
 #!/bin/bash
