@@ -1,6 +1,6 @@
-**ملف:** `.github/workflows/ci.yml`
 
-```yaml
+
+
 name: CI
 
 on:
@@ -33,4 +33,4 @@ jobs:
     
     - name: Build
       run: npm run start &
-```
+
