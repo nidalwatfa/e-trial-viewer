@@ -1,6 +1,6 @@
-**ملف:** `.eslintrc.json`
 
-```json
+
+
 {
   "env": {
     "browser": true,
