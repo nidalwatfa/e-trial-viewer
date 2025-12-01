@@ -1,4 +1,4 @@
-**ملف:** `controllers/trialController.js`
+
 
 ```javascript
 // Trial Controller - handles trial data operations
@@ -98,4 +98,4 @@ export {
   updateTrial,
   deleteTrial
 };
-```
+`
