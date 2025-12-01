@@ -1,4 +1,4 @@
-**ملف:** `models/Trial.js`
+
 
 ```javascript
 // Trial Model - defines trial data structure
