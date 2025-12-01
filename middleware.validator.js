@@ -1,4 +1,4 @@
-**ملف:** `middleware/validator.js`
+
 
 ```javascript
 const validateRequest = (schema) => {
