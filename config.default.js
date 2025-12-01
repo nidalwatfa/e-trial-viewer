@@ -1,4 +1,4 @@
-**ملف:** `config/default.js`
+
 
 ```javascript
 export default {
