@@ -1,4 +1,3 @@
-**ملف:** `scripts/setup.sh`
 
 ```bash
 #!/bin/bash
