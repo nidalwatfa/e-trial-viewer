@@ -1,4 +1,4 @@
-**ملف:** `CONTRIBUTING.md`
+
 
 ```markdown
 # المساهمة في E-Trial Viewer
