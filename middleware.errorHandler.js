@@ -1,4 +1,4 @@
-**ملف:** `middleware/errorHandler.js`
+
 
 ```javascript
 const errorHandler = (err, req, res, next) => {
