@@ -1,12 +1,37 @@
-
 {
   "name": "e-trial-viewer",
   "version": "0.1.0",
-  "description": "Viewer for e-trial simulation",
+  "description": "Viewer for e-trial simulation data",
   "main": "App.js",
+  "type": "module",
   "scripts": {
     "start": "node App.js",
+    "dev": "node --watch App.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "e-trial",
+    "viewer",
+    "simulation",
+    "data-visualization"
+  ],
+  "author": "Nidal Watfa",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nidalwatfa/e-trial-viewer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nidalwatfa/e-trial-viewer/issues"
+  },
+  "homepage": "https://github.com/nidalwatfa/e-trial-viewer#readme",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
 }
